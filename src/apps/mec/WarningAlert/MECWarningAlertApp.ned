@@ -1,3 +1,4 @@
+
 //
 //                  Simu5G
 //
@@ -15,11 +16,10 @@ import inet.applications.contract.IApp;
 import simu5g.nodes.mec.MECPlatform.IMECApp;
 
 //
-//  This is a simple MEC app that receives the coordinates and the radius from the UE app
-//  and subscribes to the CircleNotificationSubscription of the Location Service. The latter
-//  periodically checks if the UE is inside/outside the area and sends a notification to the
-//  MEC App. It then notifies the UE.
-
+// This is a simple MEC app that receives the coordinates and the radius from the UE app
+// and subscribes to the CircleNotificationSubscription of the Location Service. The latter
+// periodically checks if the UE is inside/outside the area and sends a notification to the
+// MEC App. It then notifies the UE.
 //
 //  The event behavior flow of the app is:
 //  1) receive coordinates from the UE app
