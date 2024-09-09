@@ -1,4 +1,3 @@
-
 //
 //                  Simu5G
 //
@@ -15,11 +14,12 @@ package simu5g.apps.mec.RealTimeVideoStreamingApp;
 import inet.applications.contract.IApp;
 import simu5g.nodes.mec.MECPlatform.IMECApp;
 
-//
-// The MecRTVideoStreamingReceiver module handles the reception and processing
-// of real-time video streaming packets in a Mobile Edge Computing (MEC)
-// environment. It manages the initialization, session handling, and playout
-// of video frames received from User Equipment (UE).
+// 
+// This module is an application that is dynamically instantiated on a MEC host upon request
+// from a ~RTVideoStreamingSender application, via a ~DeviceApp.
+// It receives video frames sent by the UE and simulate a playout buffer. Moreover, it records 
+// statistics related to the quality of the received video stream. Note that statistics are
+//  collected by the ~RTVideoStreamingSender application at the UE side
 //
 simple MecRTVideoStreamingReceiver like IMECApp, IApp
 {
