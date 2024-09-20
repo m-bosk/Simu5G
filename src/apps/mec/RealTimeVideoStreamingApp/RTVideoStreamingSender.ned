@@ -1,11 +1,10 @@
-//
 //                  Simu5G
 //
 // Authors: Giovanni Nardini, Giovanni Stea, Antonio Virdis (University of Pisa)
 //
-// This file is part of a software released under the license included in file
-// "license.pdf". Please read LICENSE and README files before using it.
-// The above files and the present reference are part of the software itself,
+// This file is part of a software released under the license included in the file
+// "license.pdf". Please read the LICENSE and README files before using it.
+// The aforementioned files and this reference are part of the software itself,
 // and cannot be removed from it.
 //
 
@@ -15,11 +14,11 @@ package simu5g.apps.mec.RealTimeVideoStreamingApp;
 import inet.applications.contract.IApp;
 
 //
-// This application is to be instantiated at the UE side. It requires that a ~DeviceApp is
-// also instantiated at the UE. This module requests the ~DeviceApp to instantiate a 
+// This application is to be instantiated on the UE side. It requires that a ~DeviceApp is
+// also instantiated on the UE. This module requests the ~DeviceApp to instantiate a
 // ~MecRTVideoStreamingReceiver in the MEC system.
-// Once the peer MEC application is up and running, this module starts sending packets 
-// containing video frames as read from the trace file specified in the configuration. 
+// Once the peer MEC application is up and running, this module starts sending packets
+// containing video frames as read from the trace file specified in the configuration.
 //
 simple RTVideoStreamingSender like IApp
 {
