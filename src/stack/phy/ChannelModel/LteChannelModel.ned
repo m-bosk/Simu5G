@@ -23,7 +23,7 @@ simple LteChannelModel like LteChannelModelInterface
         @display("i=block/classifier2");
         @class("LteChannelModel");
 
-        // component carrier for this channel model
+        // Component carrier for this channel model
         int componentCarrierIndex = default(0);
 }
 

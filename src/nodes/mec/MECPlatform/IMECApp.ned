@@ -30,7 +30,7 @@ moduleinterface IMECApp
         int localUePort;
 
 
-		//resource required infos
+		// Resource requirement information
         double requiredRam @unit("B");
         double requiredDisk @unit("B");
         double requiredCpu;

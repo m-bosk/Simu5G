@@ -36,11 +36,10 @@ simple MECResponseApp like IMECApp, IApp
         int minInstructions = default(9000000);
         int maxInstructions = default(11000000);
 
-
         string mp1Address = default("");
         int mp1Port = default(10021);
 
-		 //resource required info
+        // Resource requirements
         double requiredRam @unit("B");
         double requiredDisk @unit("B");
         double requiredCpu;

@@ -27,7 +27,7 @@ simple X2AppClient extends SctpClient
 {
     parameters:
         @class("X2AppClient");
-        connectPort @mutable = default(5000); // it will be overwritten by the initialization procedure
+        connectPort @mutable = default(5000); // this will be overwritten by the initialization procedure
         startTime = default(0s);
     gates:
         output x2ManagerOut @labels(X2Msg);

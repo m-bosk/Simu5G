@@ -27,16 +27,16 @@ simple LteMacBase like LteMac
         string interfaceTableModule;
         string interfaceName = default("cellular");
 
-        //# Mac Queues
+        //# MAC Queues
         int queueSize @unit(B) = default(2MiB);              // MAC Buffers queue size
 
-        //# Mac MIB
+        //# MAC MIB
         bool muMimo = default(true);
 
         //# H-ARQ
         int harqProcesses = default(8);
         int maxHarqRtx = default(3);
-        int harqFbEvaluationTimer = default(4);              // number of slots for sending back HARQ FB
+        int harqFbEvaluationTimer = default(4);              // Number of slots for sending back HARQ feedback
 
         //# Statistics display (in GUI)
         bool statDisplay = default(false);

@@ -32,7 +32,7 @@ simple MecRequestApp like IApp
         int destPort = default(4000);
         string destAddress;
         volatile int packetSize @unit(B) = intuniform(8000B,12000B);
-        int tos = default(-1); // if not -1, set the Type Of Service (IPv4) / Traffic Class (IPv6) field of sent packets to this value
+        int tos = default(-1); // if not -1, sets the Type Of Service (IPv4) / Traffic Class (IPv6) field of sent packets to this value
 
         double period @unit("s") = default(1s);
         double startTime @unit("s") = default(0s);

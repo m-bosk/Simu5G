@@ -37,7 +37,7 @@ simple MecRnisTestApp like IMECApp, IApp
         string mp1Address = default("");
         int mp1Port = default(10021);
 
-		// Resource required info
+		// Resource requirements
         double requiredRam @unit("B") = default(10MB);
         double requiredDisk @unit("B") = default(1MB);
         double requiredCpu = default(100);

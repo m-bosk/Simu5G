@@ -34,17 +34,17 @@ simple LtePhyBase like LtePhy
 
         bool dynamicCellAssociation = default(false);
 
-        // switch for handover messages handling on UEs
+        // Switch for handling handover messages on UEs
         bool enableHandover = default(false);
         double handoverLatency @unit(s) = default(0.05s);
 
-        // TODO move to LtePhyUeD2D module
+        // TODO: Move to LtePhyUeD2D module
         bool enableMulticastD2DRangeCheck = default(false);
         double multicastD2DRange @unit(m) = default(1000m);
 
     gates:
-        input upperGateIn;       // from upper layer
-        output upperGateOut;    // to upper layer
-        input radioIn;           // gate to receive message via sendDirect
+        input upperGateIn;       // From upper layer
+        output upperGateOut;    // To upper layer
+        input radioIn;           // Gate to receive messages via sendDirect
 }
 

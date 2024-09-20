@@ -26,7 +26,7 @@ simple VoIPSender like IApp
         int destPort = default(3000);
         string destAddress;
         int PacketSize @unit(B) = default(40B);
-        double shape_talk @unit(s) = default(0.824s); // params for Weibull distribution
+        double shape_talk @unit(s) = default(0.824s); // parameters for Weibull distribution
         double scale_talk @unit(s) = default(1.423s);
         double shape_sil @unit(s) = default(1.089s);
         double scale_sil @unit(s) = default(0.899s);

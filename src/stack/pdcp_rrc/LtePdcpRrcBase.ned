@@ -47,7 +47,7 @@ simple LtePdcpRrcBase like LtePdcpRrc
 
         //# Control Ports
 
-        inout EUTRAN_RRC_Sap;    // Control of RRC Layer
+        inout EUTRAN_RRC_Sap;    // Control port for RRC Layer
 
         //#
         //# Gates connecting PDCP/RRC and RLC Layer

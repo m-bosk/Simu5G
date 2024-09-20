@@ -41,7 +41,7 @@ module NRCar extends NRUe
         //# Mobility
         mobility.typename = default("VeinsInetMobility");
 
-        //# Network Layer specs
+        //# Network Layer specifications
         *.routingTableModule = default(absPath(".ipv4.routingTable"));
 
         ipv4.configurator.typename = "HostAutoConfigurator";

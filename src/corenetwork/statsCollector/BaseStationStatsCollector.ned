@@ -23,14 +23,14 @@ module BaseStationStatsCollector like StatsCollector
 
         bool movingAverage = default(false);
 
-        // used to calculate l2meas as averages
+        // used to calculate L2 measurements as averages
         int prbUsagePeriods = default(15);
         int dataVolumePeriods = default(15);
-        int activeUserPeriods = default(15); //10*100ms = 1s
+        int activeUserPeriods = default(15); // 10*100ms = 1s
         int discardRatePeriods = default(15);
         int tPutPeriods = default(15);
 
-        // period duration for each l2 meas
+        // period duration for each L2 measurement
         double prbUsagePeriod @unit(s) = default(0.01s); // TTI period
         double activeUserPeriod @unit(s) = default(0.1s);
         double dataVolumePeriod @unit(s) = default(0.5s);

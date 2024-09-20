@@ -1,4 +1,3 @@
-
 //
 //                  Simu5G
 //
@@ -50,9 +49,8 @@ moduleinterface IMECService
         double betaa;
         int numBGApps;
 
-
         string localAddress; // local address; may be left empty ("")
-        int localPort;     // localPort number to listen on
+        int localPort;     // local port number to listen on
         string dataTransferMode @enum("bytecount","object","bytestream"); // bytestream for emulation
 
         double requestServiceTime;

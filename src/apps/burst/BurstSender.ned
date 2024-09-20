@@ -21,7 +21,7 @@ import inet.applications.contract.IApp;
 simple BurstSender like IApp
 {
     parameters:
-        int localPort = default(-1);                        // local port to bind the sender (-1 means any port)
+        int localPort = default(-1);                        // local port to which the sender is bound (-1 means any port)
         int destPort = default(3000);                       // destination port to which packets will be sent
         string destAddress;                                 // destination address in string format
         double startTime @unit("s") = default(0s);          // starting time of the first burst
@@ -29,7 +29,7 @@ simple BurstSender like IApp
         int burstSize = default(10);                        // number of packets to be sent in each burst
         double interBurstTime @unit("s") = default(1s);     // time interval between consecutive bursts
 
-        int packetSize @unit(B) = default(40B);             // size of one packet, in bytes
+        int packetSize @unit(B) = default(40B);             // size of one packet in bytes
         double intraBurstTime @unit("s") = default(0.01s);  // time interval between packets within a burst
 
         int tos = default(-1);                              // Type Of Service/Traffic Class for the sent packets (-1 means no specific TOS/Traffic Class is set)

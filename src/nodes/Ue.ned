@@ -57,15 +57,15 @@ module Ue
         mobility.typename = default("StationaryMobility");
 
         //# Apps
-        int numApps = default(0);   // no of apps.
-                                    // Specify the app types in INI file with app[0..1].typename="UdpVideoStreamClient" syntax
+        int numApps = default(0);   // Number of applications.
+                                    // Specify the app types in the INI file using the syntax app[0..1].typename="UdpVideoStreamClient"
 
         //# Transport layer
         bool hasUdp = default(firstAvailableOrEmpty("Udp") != "");
         bool hasTcp = default(firstAvailableOrEmpty("Tcp", "TcpLwip", "TcpNsc") != "");
         bool hasSctp = default(false);
 
-        //# Node specs
+        //# Node specifications
         string nodeType = "UE";  // DO NOT CHANGE
         int masterId @mutable;
         int macNodeId @mutable = default(0); // TODO: this is not a real parameter
@@ -74,7 +74,7 @@ module Ue
         //# D2D capability
         string nicType = default("LteNicUe");
 
-        //# Network Layer specs
+        //# Network Layer specifications
         bool hasIpv4 = default(true);
         bool hasIpv6 = default(false);
         *.interfaceTableModule = default(absPath(".interfaceTable"));
@@ -87,13 +87,13 @@ module Ue
         //# Loopback interfaces
         int numLoInterfaces = default(1);
 
-        //# Num of PcapRecorders
-        int numPcapRecorders = default(0); // no of PcapRecorders
+        //# Number of PcapRecorders
+        int numPcapRecorders = default(0); // Number of PcapRecorders
 
         bool hasRNISupport = default(false);
 
     gates:
-        input radioIn @directIn;     // connection to master
+        input radioIn @directIn;     // Connection to master
 
     submodules:
         interfaceTable: InterfaceTable {
@@ -103,19 +103,19 @@ module Ue
             @display("p=127.368004,172.26001;is=s");
         }
 
-        //# layer submodules (must be ordered from lower to upper layers)
+        //# Layer submodules (must be ordered from lower to upper layers)
 
-        //# link layer
+        //# Link layer
         lo[numLoInterfaces]: <default("LoopbackInterface")> like ILoopbackInterface {
             parameters:
                 @display("p=503.736,589.50397,row,150");
         }
-        cellularNic: <nicType> like ICellularNic {
+        cellularNic: <default(nicType)> like ICellularNic {
             nodeType = parent.nodeType;
             @display("p=355.152,589.50397");
         }
 
-        //# ethernet interface used for communicating with external applications in emulation mode
+        //# Ethernet interface used for communicating with external applications in emulation mode
         eth[numEthInterfaces]: <default("ExtLowerEthernetInterface")> like IEthernetInterface {
             parameters:
                 @display("p=674.06396,589.50397,row,150;q=txQueue");
@@ -126,7 +126,7 @@ module Ue
                 @display("p=674.06396,496.488");
         }
 
-        //# network layer
+        //# Network layer
         ipv4: <default("Ipv4NetworkLayer")> like INetworkLayer if hasIpv4 {
             parameters:
                 @display("p=375,376;q=queue");
@@ -136,7 +136,7 @@ module Ue
                 @display("p=525,376;q=queue");
         }
 
-        //# transport layer
+        //# Transport layer
         udp: <default(firstAvailableOrEmpty("Udp"))> like IUdp if hasUdp {
             parameters:
                 @display("p=375,226");
@@ -150,22 +150,22 @@ module Ue
                 @display("p=675,226");
         }
 
-        //# app layer
+        //# App layer
         app[numApps]: <> like IApp {
             @display("p=374.47998,72.479996,row,140");
         }
 
-        //# message dispatcher for SAP between application and transport layer
+        //# Message dispatcher for SAP between application and transport layer
         at: MessageDispatcher {
             parameters:
                 @display("p=550,146;b=600,5,,,,1");
         }
-        //# message dispatcher for SAP between transport and network layer
+        //# Message dispatcher for SAP between transport and network layer
         tn: MessageDispatcher {
             parameters:
                 @display("p=550,296;b=600,5,,,,1");
         }
-        //# message dispatcher for SAP to link layer
+        //# Message dispatcher for SAP to link layer
         nl: MessageDispatcher {
             parameters:
                 @display("p=550,446;b=600,5,,,,1");
@@ -183,7 +183,7 @@ module Ue
     connections allowunconnected:
 
         //#
-        //# Internal Tcp/Udp applications connections with transport layer
+        //# Internal TCP/UDP applications connections with transport layer
         //#
 
         for i=0..numApps-1 {

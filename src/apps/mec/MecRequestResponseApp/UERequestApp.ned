@@ -8,8 +8,6 @@
 // The above files and the present reference are part of the software itself,
 // and cannot be removed from it.
 //
-
-
 package simu5g.apps.mec.MecRequestResponseApp;
 
 import inet.applications.contract.IApp;
@@ -26,16 +24,16 @@ simple UERequestApp like IApp
     parameters:
         @display("i=block/source");
 
-        //connection infos
+        //connection information
         int localPort = default(4000);
-        int deviceAppPort = default(4000); // ipAddress of the DeviceApp
+        int deviceAppPort = default(4000); // IP address of the DeviceApp
         string deviceAppAddress; // port of the DeviceApp
 
         int requestPacketSize @unit(B) = default(10B);
 
         int tos = default(-1); // if not -1, set the Type Of Service (IPv4) / Traffic Class (IPv6) field of sent packets to this value
 
-        //autoscheduling infos
+        //auto-scheduling information
         double period @unit("s") = default(0.2s);
         double startTime @unit("s") = default(0s);
         double stopTime @unit("s") = default(120s);
@@ -44,7 +42,7 @@ simple UERequestApp like IApp
 
         string interfaceTableModule;
 
-        // stats
+        // statistics
 
         @signal[responseTime];
         @statistic[responseTime](title="responseTime"; unit="s"; source="responseTime"; record=stats,mean,vector);
@@ -60,8 +58,6 @@ simple UERequestApp like IApp
 
         @signal[downLinkTime];
         @statistic[downLinkTime](title="downLinkTime"; unit="s"; source="downLinkTime"; record=stats,mean,vector);
-
-
 
     gates:
         output socketOut;

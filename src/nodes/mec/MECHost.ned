@@ -37,7 +37,7 @@ module MECHost
     parameters:
         @display("i=device/server2;bgb=1000,500");
 
-        //# Node specs
+        //# Node specifications
         string nodeType = "MECHost";						// DO NOT CHANGE
         string gateway = default("upf");
 
@@ -45,12 +45,12 @@ module MECHost
         int maxMECApps = default(0);
         double maxRam @unit("B") = default(32GB);
         double maxDisk @unit("B") = default(100TB);
-        double maxCpuSpeed = default(300000); 	 // CPU's clock speed in Million Instruction per Seconds (MIPS)
+        double maxCpuSpeed = default(300000); 	 // CPU's clock speed in Million Instructions per Second (MIPS)
 
         int numBGMecApp = default(0);
         int numIndependentMecApp = default(0);
 
-        //# List of Base Stations associated to the MEC host
+        //# List of Base Stations associated with the MEC host
         // This is a string of comma-separated values
         string bsList = default("");
 
@@ -113,7 +113,7 @@ module MECHost
         }
 
         //#
-        //# internal connection between GtpEndpoint and VirtualisationInfrastrcuture
+        //# internal connection between GtpEndpoint and VirtualisationInfrastructure
         //#
         virtualisationInfrastructure.ppp++ <--> Eth10G <--> upf_mec.filterGate;
 

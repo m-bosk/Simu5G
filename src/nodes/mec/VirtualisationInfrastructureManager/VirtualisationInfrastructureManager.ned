@@ -11,7 +11,6 @@
 
 package simu5g.nodes.mec.VirtualisationInfrastructureManager;
 
-
 //
 // This module is responsible for managing the computing resources currently allocated
 // to MEC applications hosted by a MEC host. It is also used by MEC applications in case they

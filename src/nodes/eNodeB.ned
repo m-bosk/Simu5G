@@ -58,8 +58,7 @@ module eNodeB
         @statistic[posX](source="xCoord(mobilityPos(mobilityStateChanged))"; record=vector?);
         @statistic[posY](source="yCoord(mobilityPos(mobilityStateChanged))"; record=vector?);
 
-
-        //# Node specs
+        //# Node specifications
         string nodeType = default("ENODEB");        // DO NOT CHANGE
         string gateway = default("pgw");
         int masterId @mutable = default(0);  // ID of the master eNodeB. Used in case of Dual Connectivity
@@ -68,7 +67,7 @@ module eNodeB
         double txPower @unit(mw) = default(100mw);
         string nicType = default("LteNicEnb");
 
-        //# Network Layer specs
+        //# Network Layer specifications
         bool hasIpv4 = default(true);
         bool hasIpv6 = default(false);
         *.interfaceTableModule = default(absPath(".interfaceTable"));
@@ -76,9 +75,9 @@ module eNodeB
         *.forwarding = true;
         *.multicastForwarding = false;
 
-        //# Apps
-        int numApps = default(0);     // no of apps.
-        int numX2Apps = default(0);   // no of X2 apps. Specify the app types in INI file with x2App[0..1].typename="X2AppClient" syntax
+        //# Applications
+        int numApps = default(0);     // number of applications.
+        int numX2Apps = default(0);   // number of X2 applications. Specify the application types in INI file with x2App[0..1].typename="X2AppClient" syntax
 
         //# Transport layer
         bool hasUdp = true;
@@ -92,9 +91,9 @@ module eNodeB
         string StatsCollectorType = default("BaseStationStatsCollector");
         bool hasRNISupport = default(false);
 
-        //# use it in case of emulation
+        //# Use this in case of emulation
         string extMeAppsAddress = default(""); // Address of the external MeApp IP/mask
-        //# Plmn params (used by RNI Service in EnodeBStatsCollector)
+        //# PLMN parameters (used by RNI Service in EnodeBStatsCollector)
         string mcc = default("001"); // Test network
         string mnc = default("01");  // Test network
 
@@ -104,7 +103,7 @@ module eNodeB
         inout x2[];               // connection to the X2 interface
 
         //# MEC support
-        inout pppMEHost @loose;		// connection to the GtpEndpoint module inside MEHost
+        inout pppMEHost @loose;		// connection to the GtpEndpoint module within MEHost
 
     submodules:
         interfaceTable: InterfaceTable {
@@ -125,7 +124,7 @@ module eNodeB
         }
 
         //#
-        //# cellularNic modules
+        //# Cellular NIC modules
         //#
         cellularNic: <nicType> like ICellularNic {
             parameters:
@@ -144,7 +143,7 @@ module eNodeB
         }
 
         //#
-        //# Mec interface
+        //# MEC interface
         //#
         pppMEHostIf: PppInterface {
             @display("p=657.28,519.82");
@@ -189,17 +188,17 @@ module eNodeB
                 @display("p=494.54,211.72");
         }
 
-	    // message dispatcher for SAP between application and transport layer
+	    // Message dispatcher for SAP between the application and transport layer
         at: MessageDispatcher {
             parameters:
                 @display("p=750,146;b=1000,5,,,,1");
         }
-        // message dispatcher for SAP between transport and network layer
+        // Message dispatcher for SAP between the transport and network layer
         tn: MessageDispatcher {
             parameters:
                 @display("p=750,296;b=1000,5,,,,1");
         }
-        // message dispatcher for SAP to link layer
+        // Message dispatcher for SAP to link layer
         nl: MessageDispatcher {
             parameters:
                 @display("p=750,446;b=1000,5,,,,1");
@@ -232,7 +231,7 @@ module eNodeB
         cellularNic.radioIn <-- radioIn;
 
         //#
-        //# Ppp interface to network layer connections
+        //# PPP interface to network layer connections
         //#
         pppIf.phys <--> ppp;
         pppIf.upperLayerOut --> nl.in++;
@@ -262,7 +261,7 @@ module eNodeB
         gtpUserX2.socketOut --> at.in++;
         gtpUserX2.socketIn <-- at.out++;
 
-        //# X2 apps connections
+        //# X2 applications connections
         for i=0..numX2Apps-1 {
             x2App[i].sctpOut[0] --> at.in++;
             x2App[i].sctpIn[0] <-- at.out++;
@@ -273,7 +272,7 @@ module eNodeB
         }
 
 		//#
-		//# Apps to transport layer connections
+		//# Applications to transport layer connections
 		//#
         for i=0..numApps-1 {
             app[i].socketOut --> at.in++;

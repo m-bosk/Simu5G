@@ -24,8 +24,8 @@ moduleinterface ICellularNic extends IWirelessInterface
     string nodeType;
         //bool d2dCapable;            // inherit the value from the parent module
     gates:
-        inout EUTRAN_RRC_Sap;   // Control of RRC Layer
-        inout x2[] @loose;     // optional x2 manager
-        input nrRadioIn @loose;        // for NR support
+        inout EUTRAN_RRC_Sap;   // Control of the RRC Layer
+        inout x2[] @loose;     // Optional x2 manager
+        input nrRadioIn @loose;        // For NR support
 }
 

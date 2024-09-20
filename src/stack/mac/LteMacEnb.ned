@@ -9,7 +9,6 @@
 // and cannot be removed from it.
 //
 
-
 package simu5g.stack.mac;
 
 //
@@ -41,40 +40,40 @@ simple LteMacEnb extends LteMacBase
         // AMC Mode:  "auto", "piloted", "multi", "das", "D2D"
         string amcMode @enum(AUTO,D2D) = default("AUTO");
 
-        //Min disance used to pair two MuMimo UE
+        // Minimum distance used to pair two MuMimo UEs
         int muMimoMinDistance = default(50);
 
-        // resource allocation type ("distributed" or "localized")
+        // Resource allocation type ("distributed" or "localized")
         string rbAllocationType @enum(distributed,localized) = default("localized");
 
-        // summary feedback confidence function lower bound
+        // Summary feedback confidence function lower bound
         double summaryLowerBound @unit(s) = default(5ms);
 
-        // summary feedback confidence function upper bound
+        // Summary feedback confidence function upper bound
         double summaryUpperBound @unit(s) = default(20ms);
 
-        // FeedBack Historical Base capacity in DL (number of stored feedback samples per UE)
+        // Feedback Historical Base capacity in DL (number of stored feedback samples per UE)
         int fbhbCapacityDl = default(5);
 
-        // FeedBack Historical Base capacity in UL (number of stored feedback samples per UE)
+        // Feedback Historical Base capacity in UL (number of stored feedback samples per UE)
         int fbhbCapacityUl = default(5);
 
-        // FeedBack Historical Base capacity in D2D (number of stored feedback samples per UE)
+        // Feedback Historical Base capacity in D2D (number of stored feedback samples per UE)
         int fbhbCapacityD2D = default(5);
 
-        // wideband PMI generation parameter (0.0 means "use the mean value" )
+        // Wideband PMI generation parameter (0.0 means "use the mean value")
         double pmiWeight = default(0.0);
 
-        // wideband CQI generation parameter (0.0 means "use the mean value" )
+        // Wideband CQI generation parameter (0.0 means "use the mean value")
         double cqiWeight = default(0.0);
 
-        // number of eNodeBs - set to 0 if unknown
+        // Number of eNodeBs - set to 0 if unknown
         int eNodeBCount = default(0);
 
         //#
-        //# eNb Scheduler Parameters
+        //# eNB Scheduler Parameters
         //#
-        // Scheduling discipline. See LteCommon.h for discipline meaning.
+        // Scheduling discipline. See LteCommon.h for the meaning of disciplines.
         string schedulingDisciplineDl @enum(DRR,PF,MAXCI,MAXCI_MB,MAXCI_OPT_MB,MAXCI_COMP,ALLOCATOR_BESTFIT) = default("MAXCI");
         string schedulingDisciplineUl @enum(DRR,PF,MAXCI,MAXCI_MB,MAXCI_OPT_MB,MAXCI_COMP,ALLOCATOR_BESTFIT) = default("MAXCI");
 
@@ -84,7 +83,7 @@ simple LteMacEnb extends LteMacBase
         string pilotMode @enum(IN_CQI,MAX_CQI,AVG_CQI,MEDIAN_CQI,ROBUST_CQI) = default("ROBUST_CQI");
 
         //#
-        //# Statistics related to resource blocks occupancy
+        //# Statistics related to resource block occupancy
         @signal[avgServedBlocksDl];
         @statistic[avgServedBlocksDl](title="Average number of allocated Resource Blocks in the DL"; unit="blocks"; source="avgServedBlocksDl"; record=mean,vector);
         @signal[avgServedBlocksUl];

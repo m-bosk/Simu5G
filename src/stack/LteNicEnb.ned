@@ -46,7 +46,7 @@ module LteNicEnb extends LteNicBase
         }
 
         //#
-        //# Modules exploiting X2 interface
+        //# Modules utilizing the X2 interface
         //#
         compManager: <LteCompManagerType> like LteCompManager if compEnabled {
             @display("p=493,314,row");

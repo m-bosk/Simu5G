@@ -11,7 +11,6 @@
 
 package simu5g.stack.phy.ChannelModel;
 
-
 //
 // This channel model implements path loss, LOS probability, and shadowing according to
 // the following specifications:

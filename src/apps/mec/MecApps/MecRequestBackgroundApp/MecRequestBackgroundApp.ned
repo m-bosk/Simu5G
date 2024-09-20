@@ -34,7 +34,7 @@ simple MecRequestBackgroundApp like IMECApp, IApp
         string interfaceTableModule = default("");
 
         int mecAppIndex = default(0);
-        int mecAppId = default(0); // it will be override by getId() in initialize
+        int mecAppId = default(0); // will be overridden by getId() in initialize
         int localUePort = default(0); // not used in MecRequestBackgroundGeneratorApp
 
         string mp1Address = default("");
@@ -42,28 +42,28 @@ simple MecRequestBackgroundApp like IMECApp, IApp
 
         double lambda @unit(s) = default(10ms);
 
-		 //resource required info
+        // Resource requirements
         double requiredRam @unit("B") = default(10MB);
         double requiredDisk @unit("B") = default(100MB);
         double requiredCpu = default(15000);
 
         // IApp parameters
-        int timeToLive = default(-1); // if not -1, set the TTL (IPv4) or Hop Limit (IPv6) field of sent packets to this value
-        int dscp = default(-1); // if not -1, set the DSCP (IPv4/IPv6) field of sent packets to this value
-        int tos = default(-1); // if not -1, set the Type Of Service (IPv4) / Traffic Class (IPv6) field of sent packets to this value
+        int timeToLive = default(-1); // if not -1, sets the TTL (IPv4) or Hop Limit (IPv6) field of sent packets to this value
+        int dscp = default(-1); // if not -1, sets the DSCP (IPv4/IPv6) field of sent packets to this value
+        int tos = default(-1); // if not -1, sets the Type Of Service (IPv4) / Traffic Class (IPv6) field of sent packets to this value
 
         bool logger = default(false);
 
         string localAddress = default(""); // may be left empty ("")
         int localPort = default(-1); // port number to listen on
-        string connectAddress = default("");  // server address (may be symbolic)
+        string connectAddress = default("");  // server address (can be symbolic)
         int connectPort = default(1000); // port number to connect to
-        double startTime @unit(s) = default(1s); // time first session begins
-        double stopTime @unit(s) = default(-1s);  // time of finishing sending, negative values mean forever
+        double startTime @unit(s) = default(1s); // time when the first session begins
+        double stopTime @unit(s) = default(-1s);  // time to finish sending; negative values mean forever
 
         @display("i=block/app");
         @lifecycleSupport;
-        double stopOperationExtraTime @unit(s) = default(-1s);    // extra time after lifecycle stop operation finished
+        double stopOperationExtraTime @unit(s) = default(-1s);    // extra time after lifecycle stop operation is finished
         double stopOperationTimeout @unit(s) = default(2s);    // timeout value for lifecycle stop operation
 
 

@@ -28,18 +28,18 @@ simple CellInfo
         //#
         //# General properties
         //#
-        
-        // The minimum X-coordinate of the area constraint, unconstrained by default
-        double constraintAreaMinX @unit(m) = default(-1m/0); 
 
-        // The minimum Y-coordinate of the area constraint, unconstrained by default
-        double constraintAreaMinY @unit(m) = default(-1m/0); 
+        // The minimum X-coordinate of the area constraint; unconstrained by default
+        double constraintAreaMinX @unit(m) = default(-1m/0);
 
-        // The maximum X-coordinate of the area constraint, unconstrained by default
-        double constraintAreaMaxX @unit(m) = default(1m/0); 
+        // The minimum Y-coordinate of the area constraint; unconstrained by default
+        double constraintAreaMinY @unit(m) = default(-1m/0);
 
-        // The maximum Y-coordinate of the area constraint, unconstrained by default
-        double constraintAreaMaxY @unit(m) = default(1m/0); 
+        // The maximum X-coordinate of the area constraint; unconstrained by default
+        double constraintAreaMaxX @unit(m) = default(1m/0);
+
+        // The maximum Y-coordinate of the area constraint; unconstrained by default
+        double constraintAreaMaxY @unit(m) = default(1m/0);
 
         // Speed used in CircleMobility and ConstSpeedMobility modules
         double speed @unit(mps) = default(0mps);
@@ -56,7 +56,7 @@ simple CellInfo
         //#
         //# Remote Units (DAS)
         //#
-        
+
         // Number of Remote Units
         int numRus = default(0);
 
@@ -69,7 +69,7 @@ simple CellInfo
         // CSV string specifying the TX power for each remote unit (integer values)
         string ruTxPower = default("0;");
 
-        // Codewords for each antenna, first position refers to the MACRO
+        // Codewords for each antenna; the first position refers to the MACRO
         string antennaCws = default("1;");
 
         //#

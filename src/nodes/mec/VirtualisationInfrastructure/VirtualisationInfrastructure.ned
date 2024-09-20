@@ -47,7 +47,7 @@ module VirtualisationInfrastructure
         @figure[linkLayer.title](type=text; pos=845,461; anchor=ne; text="link layer");
         @figure[submodules];
 
-        //# Network Layer specs
+        //# Network Layer specifications
         bool hasIpv4 = default(true);
         bool hasIpv6 = default(false);
         *.interfaceTableModule = default(absPath(".interfaceTable"));
@@ -58,15 +58,15 @@ module VirtualisationInfrastructure
 
     gates:
 
-        inout ppp[];				// connection with GtpEndpoint and local/external networks
+        inout ppp[];				// Connection with GtpEndpoint and local/external networks
 
-        output independentMecAppOut[numIndependentMecApp];			// connection to the ME App input gate
-        input independentMecAppIn[numIndependentMecApp];			// connection to the ME App output gate
+        output independentMecAppOut[numIndependentMecApp];			// Connection to the ME App input gate
+        input independentMecAppIn[numIndependentMecApp];			// Connection to the ME App output gate
 
-        output meAppOut[];			// connection to the ME App input gate
-        input meAppIn[];			// connection to the ME App output gate
+        output meAppOut[];			// Connection to the ME App input gate
+        input meAppIn[];			// Connection to the ME App output gate
 
-        inout mecPlatform[];			// connection to the MEC Platform
+        inout mecPlatform[];			// Connection to the MEC Platform
 
     submodules:
 
@@ -75,13 +75,13 @@ module VirtualisationInfrastructure
         }
 
         //#
-        //# link-layer modules
+        //# Link-layer modules
         //#
         pppIf[sizeof(ppp)]: PppInterface {
             @display("p=736.2375,660.075");
         }
 
-        // ethernet interface used for communicating with external applications in emulation mode
+        // Ethernet interface used for communicating with external applications in emulation mode
         extEth[numExtEthInterfaces]: <default("ExtLowerEthernetInterface")> like IEthernetInterface {
             parameters:
                 @display("p=326.6525,660.075,row,150;q=txQueue");
@@ -120,17 +120,17 @@ module VirtualisationInfrastructure
             @display("p=627,217");
         }
 
-        // message dispatcher for SAP between application and transport layer
+        // Message dispatcher for SAP between application and transport layer
         at: MessageDispatcher {
             parameters:
                 @display("p=550,146;b=600,5,,,,1");
         }
-        // message dispatcher for SAP between transport and network layer
+        // Message dispatcher for SAP between transport and network layer
         tn: MessageDispatcher {
             parameters:
                 @display("p=550,296;b=600,5,,,,1");
         }
-        // message dispatcher for SAP to link layer
+        // Message dispatcher for SAP to link layer
         nl: MessageDispatcher {
             parameters:
                 @display("p=550,446;b=600,5,,,,1");

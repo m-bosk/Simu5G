@@ -25,17 +25,16 @@ simple RNIService like IMECService, IApp
     parameters:
         int requestQueueSize = default(0);
         int subscriptionQueueSize = default(0);
-        string localAddress = default(""); // local address; may be left empty ("")
-        int localPort = default(1000);     // localPort number to listen on
-        string dataTransferMode @enum("bytecount","object","bytestream") = default("bytestream"); // bytestream for emulation
+        string localAddress = default(""); // Local address; may be left empty ("")
+        int localPort = default(1000);     // Local port number to listen on
+        string dataTransferMode @enum("bytecount","object","bytestream") = default("bytestream"); // Bytestream for emulation
 
         double requestServiceTime @unit(s) = default(0.5us);
         double subscriptionServiceTime @unit(s) = default(0.5us);
 
         bool loadGenerator = default(false);
-        double betaa = default(0);  // used only if loadGenerator is true
-        int numBGApps = default(0); // used only if loadGenerator is true
-
+        double betaa = default(0);  // Used only if loadGenerator is true
+        int numBGApps = default(0); // Used only if loadGenerator is true
 
         string serverThreadClass = default("simu5g.nodes.mec.MECPlatform.MECServices.MECServiceBase.SocketManager");
 

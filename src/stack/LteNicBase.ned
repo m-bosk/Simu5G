@@ -40,17 +40,17 @@ module LteNicBase extends NetworkInterface like ICellularNic
         string LtePdcpRrcType;      // One of: "LtePdcpRrcUe", "LtePdcpRrcEnb", "LtePdcpRrcUeD2D", "LtePdcpRrcEnbD2D"
         string LteMacType;          // One of: "LteMacUe", "LteMacEnb", "LteMacUeD2D", "LteMacEnbD2D"
 
-        string PacketFlowManagerType; // One of: "PacketFlowManagerUe", "PacketFlowManagerUe"
+        string PacketFlowManagerType; // One of: "PacketFlowManagerUe", "PacketFlowManagerEnb"
         bool hasRNISupport = default(false);
 
         string LtePhyType;
         string nodeType;
-        double processingDelayIn @unit(s) = default(0s);   // additional processing delay for incoming ip packets
-        double processingDelayOut @unit(s) = default(0s);   // additional processing delay for outgoing ip packets
+        double processingDelayIn @unit(s) = default(0s);   // Additional processing delay for incoming IP packets
+        double processingDelayOut @unit(s) = default(0s);   // Additional processing delay for outgoing IP packets
 
         string LteChannelModelType = default("LteRealisticChannelModel");
 
-        bool d2dCapable;            // inherit the value from the parent module
+        bool d2dCapable;            // Inherit the value from the parent module
 
         bool dualConnectivityEnabled = default(false);
         int numCarriers = default(1);
@@ -62,15 +62,15 @@ module LteNicBase extends NetworkInterface like ICellularNic
         //# Gates connecting UE/eNB and LTE Stack
         //#
         //# Control Ports
-        inout EUTRAN_RRC_Sap;   // Control of RRC Layer
+        inout EUTRAN_RRC_Sap;   // Control of the RRC Layer
         input upperLayerIn;
         output upperLayerOut;
-        input radioIn @loose;  // to receive messages sent using sendDirect()
-        input nrRadioIn @loose;// for NR support
-        inout x2[] @loose;     // optional x2 manager
+        input radioIn @loose;  // To receive messages sent using sendDirect()
+        input nrRadioIn @loose;// For NR support
+        inout x2[] @loose;     // Optional X2 manager
 
     submodules:
-        // bridge between radio nic and network layer
+        // Bridge between radio NIC and network layer
         ip2nic: <default("IP2Nic")> like INetworkLayer2CellularNic {
             nodeType = parent.nodeType;
             interfaceTableModule = parent.interfaceTableModule;
@@ -101,8 +101,8 @@ module LteNicBase extends NetworkInterface like ICellularNic
             @display("p=100,389");
         }
 
-         		//#
-        //# Modules used to take trace of PDCP pkt flow
+             		//#
+        //# Modules used to track PDCP packet flow
         //#
         packetFlowManager: <PacketFlowManagerType> like PacketFlowManager if hasRNISupport {
             @display("p=69,299");
@@ -132,7 +132,7 @@ module LteNicBase extends NetworkInterface like ICellularNic
         mac.MAC_to_PHY --> phy.upperGateIn;
         mac.PHY_to_MAC <-- phy.upperGateOut;
 
-        //# external: lower connection
+        //# External: lower connection
         radioIn --> phy.radioIn;
         ip2nic.upperLayerOut --> {  delay = parent.processingDelayOut; } --> upperLayerOut;
         upperLayerIn --> {  delay = parent.processingDelayIn; } --> ip2nic.upperLayerIn;

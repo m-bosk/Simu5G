@@ -35,21 +35,21 @@ simple MecRequestBackgroundGeneratorApp like IMECApp, IApp
         string interfaceTableModule = default("");
 
         int mecAppIndex = default(0);
-        int mecAppId = default(0); // it will be override by getId() in initialize
+        int mecAppId = default(0); // it will be overridden by getId() in initialize
         int localUePort = default(0); // not used in MecRequestBackgroundGeneratorApp
 
         string mp1Address = default("");
         int mp1Port = default(10021);
 
-		 //resource required info
+		 // Resource requirement information
         double requiredRam @unit("B") = default(10MB);
         double requiredDisk @unit("B") = default(100MB);
         double requiredCpu = default(15000);
 
         // IApp parameters
-        int timeToLive = default(-1); // if not -1, set the TTL (IPv4) or Hop Limit (IPv6) field of sent packets to this value
-        int dscp = default(-1); // if not -1, set the DSCP (IPv4/IPv6) field of sent packets to this value
-        int tos = default(-1); // if not -1, set the Type Of Service (IPv4) / Traffic Class (IPv6) field of sent packets to this value
+        int timeToLive = default(-1); // if not -1, sets the TTL (IPv4) or Hop Limit (IPv6) field of sent packets to this value
+        int dscp = default(-1); // if not -1, sets the DSCP (IPv4/IPv6) field of sent packets to this value
+        int tos = default(-1); // if not -1, sets the Type Of Service (IPv4) / Traffic Class (IPv6) field of sent packets to this value
 
         bool logger = default(false);
     gates:

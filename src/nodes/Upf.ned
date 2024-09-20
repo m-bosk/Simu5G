@@ -42,8 +42,8 @@ module Upf extends NetworkLayerNodeBase
         multicastForwarding = default(false);
 
     gates:
-        // this gate is used for the UPF connected to the external data network
-        // it must be left unconnected for intermediate UPFs
+        // This gate is used for the UPF connected to the external data network.
+        // It must be left unconnected for intermediate UPFs.
         inout filterGate @loose @labels(PppFrame-conn);
 
     submodules:
@@ -83,15 +83,15 @@ module Upf extends NetworkLayerNodeBase
 
         trafficFlowFilter.gtpUserGateOut --> gtp_user.trafficFlowFilterGate;
 
-        // at dispatcher to transport layer connections
+        // Connections from at dispatcher to transport layer
         at.out++ --> udp.appIn;
         at.in++ <-- udp.appOut;
 
-        // transport layer to tn dispatcher connections
+        // Connections from transport layer to tn dispatcher
         udp.ipOut --> tn.in++;
         udp.ipIn <-- tn.out++;
 
-        // tn dispatcher to network layer connections
+        // Connections from tn dispatcher to network layer
         tn.out++ --> ipv4.transportIn if hasIpv4;
         tn.in++ <-- ipv4.transportOut if hasIpv4;
 

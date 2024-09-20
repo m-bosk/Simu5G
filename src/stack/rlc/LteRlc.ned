@@ -26,7 +26,7 @@ module LteRlc
     parameters:
         @display("i=block/transport");
         string LteRlcUmType = default("LteRlcUm");                   // One of: "LteRlcUm", "LteRlcUmD2D"
-        bool d2dCapable;                                             // inherit the value from the parent module
+        bool d2dCapable;                                             // Inherit the value from the parent module
         string umType = d2dCapable ? "LteRlcUmD2D" : LteRlcUmType;
 
     gates:

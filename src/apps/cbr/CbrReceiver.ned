@@ -35,8 +35,6 @@ simple CbrReceiver like IApp
         @statistic[cbrReceivedThroughtput](title="Throughput received at the application level"; unit="Bps"; source="cbrReceivedThroughtputSignal"; record=timeavg,mean,sum);
         @statistic[cbrReceivedBytes](title="Bytes received at the application level"; unit="Bps"; source="cbrReceivedBytesSignal"; record=timeavg,mean,vector,sum);
 
-
-
         @signal[cbrRcvdPkt];
         @statistic[cbrRcvdPkt](title="Received packet ID"; unit=""; source="cbrRcvdPkt"; record=vector);
 

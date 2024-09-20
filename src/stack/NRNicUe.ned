@@ -19,7 +19,6 @@ import simu5g.stack.phy.LtePhy;
 import simu5g.stack.phy.feedback.LteDlFeedbackGenerator;
 import simu5g.stack.rlc.LteRlc;
 
-
 //
 // This module defines a User Equipment (UE) network interface card that
 // supports both LTE and NR (New Radio) technologies. It extends the
@@ -42,7 +41,7 @@ module NRNicUe extends LteNicUeD2D
         LtePdcpRrcType = default("NRPdcpRrcUe");
         LtePhyType = default("NRPhyUe");	        // TODO fix this
         											// LtePhy is of type NRPhyUe so that it is
-        											// be aware of the existing of the second
+        											// aware of the existence of the second
         											// PHY layer (needed at handover)
 
         @display("bgb=694,443");
@@ -73,7 +72,7 @@ module NRNicUe extends LteNicUeD2D
             @display("p=144,50;is=s");
         }
  		//#
-        //# Modules used to take trace of PDCP pkt flow
+        //# Modules used to trace PDCP packet flow
         //#
         nrPacketFlowManager: <NRPacketFlowManagerType> like PacketFlowManager if hasRNISupport {
             @display("p=197,299");

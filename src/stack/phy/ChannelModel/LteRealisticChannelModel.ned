@@ -30,13 +30,13 @@ simple LteRealisticChannelModel extends LteChannelModel
         bool shadowing = default(true);
 
         // Pathloss scenario from ITU -->
-        string scenario @enum(INDOOR_HOTSPOT,URBAN_MICROCELL,URBAN_MACROCELL,RURAL_MACROCELL,SUBURBAN_MACROCELL,UNKNOW_SCENARIO) = default("URBAN_MACROCELL");
+        string scenario @enum(INDOOR_HOTSPOT, URBAN_MICROCELL, URBAN_MACROCELL, RURAL_MACROCELL, SUBURBAN_MACROCELL, UNKNOWN_SCENARIO) = default("URBAN_MACROCELL");
 
         // eNodeB height -->
         double nodeb_height @unit(m) = default(25m);
         // Building height -->
         double building_height @unit(m) = default(20m);
-        // determines if the UE is inside a building
+        // Determines if the UE is inside a building
         bool inside_building = default(false);
 
         double street_wide @unit(m) = default(20m);
@@ -64,48 +64,48 @@ simple LteRealisticChannelModel extends LteChannelModel
         double antennGainMicro @unit(dBi) = default(5dBi);
         // Thermal Noise for 10 MHz of Bandwidth -->
         double thermalNoise @unit(dBm) = default(-104.5dBm);
-        // Ue noise figure -->
+        // UE noise figure -->
         double ue_noise_figure @unit(dBm) = default(7dBm);
         // eNodeB noise figure -->
         double bs_noise_figure @unit(dBm) = default(5dBm);
         // Cable Loss -->
         double cable_loss @unit(dB) = default(2dB);
 
-        // If true enable the possibility to switch dinamically the LOS/NLOS pathloss computation -->
+        // If true enables the possibility to switch dynamically the LOS/NLOS pathloss computation -->
         bool dynamic_los = default(false);
-        // If dynamic-los is false this parameter, if true, compute LOS pathloss otherwise compute NLOS pathloss -->
+        // If dynamic-losing is false, this parameter, if true, computes LOS pathloss; otherwise computes NLOS pathloss -->
         bool fixed_los = default(false);
         // Enable/disable fading -->
         bool fading = default(true);
-        // Fading type (JAKES or RAYGHLEY) -->
-        string fading_type @enum(RAYLEIGH,JAKES) = default("JAKES");
-        // If jakes fading this parameter specify the number of path (tap channel) -->
+        // Fading type (JAKES or RAYLEIGH) -->
+        string fading_type @enum(RAYLEIGH, JAKES) = default("JAKES");
+        // If Jakes fading, this parameter specifies the number of paths (tap channel) -->
         int fading_paths = default(6);
 
         double delay_rms @unit(s) = default(363ns);
 
-        // if true, enables the inter-cell interference computation for UL and DL connections from background cells -->
+        // If true, enables the inter-cell interference computation for UL and DL connections from background cells -->
         bool bgCell_interference = default(true);
-        // if true, enables the inter-cell interference computation for DL connections from external cells (maybe this is obsolete and should be removed) -->
+        // If true, enables the inter-cell interference computation for DL connections from external cells (this may be obsolete and should be removed) -->
         bool extCell_interference = default(true);
-        // if true, enables the inter-cell interference computation for DL connections -->
+        // If true, enables the interference computation for DL connections -->
         bool downlink_interference = default(false);
-        // if true, enables the interference computation for UL connections -->
+        // If true, enables the interference computation for UL connections -->
         bool uplink_interference = default(false);
-	// if true, enables the interference computation for D2D connections -->
+	// If true, enables the interference computation for D2D connections -->
         bool d2d_interference = default(true);
 
         bool enable_extCell_los = default(true);
 
-        // read channel information from log file
+        // Read channel information from log file
         bool useRsrqFromLog = default(false);
         int rsrqShift = default(22);
         double rsrqScale = default(1.0);
 
-        // collection of SINR statistics can be disabled because it might be quite time-consuming
+        // Collection of SINR statistics can be disabled, as it might be quite time-consuming
         bool collectSinrStatistics = default(true);
 
-        // statistics
+        // Statistics
         @signal[rcvdSinrDl];
         @statistic[rcvdSinrDl](title="SINR measured at packet reception, DL"; unit="dB"; source="rcvdSinrDl"; record=mean, vector);
         @signal[rcvdSinrUl];

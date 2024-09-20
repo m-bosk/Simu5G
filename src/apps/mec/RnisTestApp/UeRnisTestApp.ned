@@ -28,16 +28,16 @@ simple UeRnisTestApp like IApp
     parameters:
         @display("i=block/source");
 
-        //connection infos
+        // Connection information
         int localPort = default(4000);
-        int deviceAppPort = default(4000); // ipAddress of the DeviceApp
-        string deviceAppAddress;           // port of the DeviceApp
+        int deviceAppPort = default(4000); // IP address of the DeviceApp
+        string deviceAppAddress;           // Port of the DeviceApp
 
         double queryingPeriod @unit("s") = default(1s);   // RNIS querying period
 
-        int tos = default(-1); // if not -1, set the Type Of Service (IPv4) / Traffic Class (IPv6) field of sent packets to this value
+        int tos = default(-1); // If not -1, set the Type Of Service (IPv4) / Traffic Class (IPv6) field of sent packets to this value
 
-        //autoscheduling infos
+        // Auto-scheduling information
         double period @unit("s") = default(1s);
         double startTime @unit("s") = default(0s);
         double stopTime @unit("s") = default(120s);

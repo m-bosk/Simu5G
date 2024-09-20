@@ -33,11 +33,11 @@ module UALCMP
         @networkNode();
         @display("i=device/mainframe;bgb=1006.50995,692.76");
 
-        //# Node specs
+        //# Node specifications
         string nodeType = "MECOrchestrator";						// DO NOT CHANGE
         string gateway = default("upf");
 
-        // hostname of the reference orchestrator
+        // Hostname of the reference orchestrator
         string mecOrchestratorHostname = default("mecOrchestrator");
 
         bool hasIpv4 = default(true);
@@ -49,11 +49,11 @@ module UALCMP
 
     gates:
 
-        //to external networks (internet)
+        // To external networks (Internet)
         inout ppp[];
 
         output toMecOrchestrator;
-        input fromMecOrchestrator;			// connection to the ME App output gate
+        input fromMecOrchestrator;			// Connection to the ME App output gate
 
     submodules:
 
@@ -62,7 +62,7 @@ module UALCMP
         }
 
         //#
-        //# ppp modules
+        //# PPP modules
         //#
         //        pppIf[sizeof(ppp)]: PppInterface {
         //            @display("p=550,508");
@@ -71,7 +71,7 @@ module UALCMP
             @display("p=446.832,506.688");
         }
 
-        // ethernet interface used for communicating with external applications in emulation mode
+        // Ethernet interface used for communicating with external applications in emulation mode
         extEth[numExtEthInterfaces]: <default("ExtLowerEthernetInterface")> like IEthernetInterface {
             parameters:
                 @display("p=641.712,506.688,row,150;q=txQueue");
@@ -105,17 +105,17 @@ module UALCMP
             @display("p=627,217");
         }
 
-        // message dispatcher for SAP between application and transport layer
+        // Message dispatcher for SAP between application and transport layer
         at: MessageDispatcher {
             parameters:
                 @display("p=550,146;b=600,5,,,,1");
         }
-        // message dispatcher for SAP between transport and network layer
+        // Message dispatcher for SAP between transport and network layer
         tn: MessageDispatcher {
             parameters:
                 @display("p=550,296;b=600,5,,,,1");
         }
-        // message dispatcher for SAP to link layer
+        // Message dispatcher for SAP to link layer
         nl: MessageDispatcher {
             parameters:
                 @display("p=550,446;b=600,5,,,,1");

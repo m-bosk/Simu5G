@@ -26,20 +26,20 @@ simple LteMacEnbD2D extends LteMacEnb
         bool usePreconfiguredTxParams = default(false);
         int d2dCqi = default(7);
 
-        // frequency reuse parameters
+        // Frequency reuse parameters
         bool reuseD2D = default(false);
         bool reuseD2DMulti = default(false);
         double conflictGraphUpdatePeriod @unit(s) = default(1s);
 
-        // CG thresholds can be defined in either dBm or meters
-        // if distances are set to -1.0, then dBm thresholds are used,
-        // otherwise distances have priority on dBm thresholds
+        // CG thresholds can be defined in either dBm or meters.
+        // If distances are set to -1.0, then dBm thresholds are used,
+        // otherwise, distances have priority over dBm thresholds.
         double conflictGraphThreshold = default(90);                       // dBm
         double conflictGraphD2DInterferenceRadius @unit(m) = default(-1.0m);         // meters
         double conflictGraphD2DMultiTxRadius @unit(m) = default(-1.0m);              // meters
         double conflictGraphD2DMultiInterferenceRadius @unit(m) = default(-1.0m);    // meters
 
-        // handling of D2D mode switch
+        // Handling of D2D mode switch
         bool msHarqInterrupt = default(true);
         bool msClearRlcBuffer = default(true);
 

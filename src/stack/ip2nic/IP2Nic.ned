@@ -27,11 +27,11 @@ simple IP2Nic like INetworkLayer2CellularNic
         string routingTableModule;
         @display("i=block/layer");
     gates:
-        // connection to network layer.
-        // These gate names are recognized by the network layer (same as the ones in the INetworkInterface interface)
+        // Connection to the network layer.
+        // These gate names are recognized by the network layer (same as those in the INetworkInterface interface).
         input upperLayerIn;
         output upperLayerOut;
 
-        // connection to the cellular stack
+        // Connection to the cellular stack.
         inout stackNic @labels(IPDatagram);
 }

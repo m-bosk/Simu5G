@@ -19,6 +19,6 @@ package simu5g.corenetwork.statsCollector;
 //
 moduleinterface StatsCollector
 {
-    string collectorType; // it can be: "eNBStatsCollector, gNBStatsCollector, ueStatsCollector, NRueStatsCollector
+    string collectorType; // it can be: "eNBStatsCollector", "gNBStatsCollector", "ueStatsCollector", or "NRueStatsCollector"
 }
 

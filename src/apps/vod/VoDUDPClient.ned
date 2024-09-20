@@ -35,7 +35,7 @@ simple VoDUDPClient like IApp
         string avipluginPath = default("");
         int numFrame = default(0);
         int numPktPerFrame = default(0);
-        int tos = default(-1); // if not -1, set the Type Of Service (IPv4) / Traffic Class (IPv6) field of sent packets to this value
+        int tos = default(-1); // if not -1, sets the Type Of Service (IPv4) / Traffic Class (IPv6) field of sent packets to this value
 
         @display("i=block/app");
         @class(VoDUDPClient);
@@ -56,7 +56,6 @@ simple VoDUDPClient like IApp
         @statistic[VoDDelayLayer2](title="VoD Delay Layer 2"; unit=""; source="VoDDelayLayer2"; record=mean,vector);
         @signal[VoDDelayLayer3];
         @statistic[VoDDelayLayer3](title="VoD Delay Layer 3"; unit=""; source="VoDDelayLayer3"; record=mean,vector);
-
 
     gates:
         input socketIn @labels(UdpControlInfo/up);

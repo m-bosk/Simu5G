@@ -40,22 +40,22 @@ module BackgroundCell
         string bgTrafficManagerType = default("BackgroundCellTrafficManager");
 
     submodules:
-        // mobility module for the background base station
+        // Mobility module for the background base station
         mobility: StationaryMobility {
             @display("p=100,38;is=s");
         }
 
-        // channel model for the background cell
+        // Channel model for the background cell
         bgChannelModel: BackgroundCellChannelModel {
             @display("p=100,105;is=s");
         }
 
-        // perform the scheduling for the BackgroundCell
+        // Performs scheduling for the BackgroundCell
         bgScheduler: BackgroundScheduler {
             @display("p=222,38,row");
         }
 
-        // traffic generator for the background UEs within the BackgroundCell
+        // Traffic generator for the background UEs within the BackgroundCell
         bgTrafficGenerator: BackgroundTrafficGenerator {
             @display("p=347,38,row");
             bgTrafficManagerType = parent.bgTrafficManagerType;

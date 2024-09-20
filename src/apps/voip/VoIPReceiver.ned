@@ -24,12 +24,12 @@ simple VoIPReceiver like IApp
 {
     parameters:
         int localPort = default(3000);
-        int emodel_Ie_ = default(5);  // TODO from some ITU standard, figure it out
+        int emodel_Ie_ = default(5);  // TODO: Refer to some ITU standard for clarification
         int emodel_Bpl_ = default(10);
         int emodel_A_ = default(5);
         double emodel_Ro_ = default(93.2);
         double playout_delay @unit("s") = default(0s);
-        int dim_buffer @unit(pk) = default(20pk); // in the number of packets
+        int dim_buffer @unit(pk) = default(20pk); // measured in the number of packets
         double sampling_time @unit("s") = default(0.02s);
 
         @signal[voIPFrameLoss];

@@ -25,10 +25,10 @@ simple LtePhyUe extends LtePhyBase
     parameters:
         @class("LtePhyUe");
 
-        // if true, get minRssi from PhyPisaData
+        // If true, retrieve minRssi from PhyPisaData
         bool minRssiDefault = default(true);
 
-        // configurable minimum threshold RSSI for attaching to an eNB (meaningful only if minRssiDefault==false)
+        // Configurable minimum threshold RSSI for attachment to an eNB (meaningful only if minRssiDefault==false)
         double minRssi @unit("dB") = default(-99.0dB);
 
         @signal[distance];

@@ -56,7 +56,7 @@ simple MultihopD2D like IApp
         double I @unit("s") = default(0.01s);
         int k = default(3);
 
-        //# Network Layer specs
+        //# Network Layer specifications
         string interfaceTableModule = default(absPath(".interfaceTable"));
 
         int tos = default(-1); // if not -1, set the Type Of Service (IPv4) / Traffic Class (IPv6) field of sent packets to this value

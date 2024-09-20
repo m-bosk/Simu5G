@@ -23,56 +23,56 @@ simple BackgroundCellChannelModel
         @display("i=block/control");
         @class("BackgroundCellChannelModel");
 
-        // Enable/disable shadowing
+        // Enable or disable shadowing
         bool shadowing = default(true);
 
-        // Pathloss scenario from ITU -->
-        string scenario @enum(INDOOR_HOTSPOT,URBAN_MICROCELL,URBAN_MACROCELL,RURAL_MACROCELL,SUBURBAN_MACROCELL,UNKNOW_SCENARIO) = default("URBAN_MACROCELL");
+        // Path loss scenario from ITU -->
+        string scenario @enum(INDOOR_HOTSPOT, URBAN_MICROCELL, URBAN_MACROCELL, RURAL_MACROCELL, SUBURBAN_MACROCELL, UNKNOWN_SCENARIO) = default("URBAN_MACROCELL");
 
         // eNodeB height -->
         double nodeb_height @unit(m) = default(25m);
         // Building height -->
         double building_height @unit(m) = default(20m);
-        // determines if the UE is inside a building
+        // Determines if the UE is located inside a building
         bool inside_building = default(false);
 
-        double street_wide @unit(m) = default(20m); //TODO width
+        double street_width @unit(m) = default(20m); //TODO width
         double ue_height @unit(m) = default(1.5m);
         bool tolerateMaxDistViolation = default(false);
 
         double correlation_distance @unit(m) = default(50m);
 
-        // Antenna Gain of UE --> wrt an isotropic antenna
-        double antennaGainUe @unit(dBi) = default(0dBi);  
+        // Antenna Gain of UE --> with respect to an isotropic antenna
+        double antennaGainUe @unit(dBi) = default(0dBi);
         // Antenna Gain of eNodeB -->
-        double antennGainEnB @unit(dBi) = default(18dBi);
+        double antennaGainEnB @unit(dBi) = default(18dBi);
         // Antenna Gain of Micro node -->
-        double antennGainMicro @unit(dBi) = default(5dBi);
-        // Thermal Noise for 10 MHz of Bandwidth -->
+        double antennaGainMicro @unit(dBi) = default(5dBi);
+        // Thermal Noise for 10 MHz of bandwidth -->
         double thermalNoise @unit(dBm) = default(-104.5dBm);
-        // Ue noise figure -->
+        // UE noise figure -->
         double ue_noise_figure @unit(dBm) = default(7dBm);
         // eNodeB noise figure -->
         double bs_noise_figure @unit(dBm) = default(5dBm);
         // Cable Loss -->
         double cable_loss @unit(dB) = default(2dB);
 
-        // If true enable the possibility to switch dinamically the LOS/NLOS pathloss computation -->
+        // If true, enable the possibility to dynamically switch between LOS and NLOS path loss computation -->
         bool dynamic_los = default(false);
-        // If dynamic-los is false this parameter, if true, compute LOS pathloss otherwise compute NLOS pathloss -->
+        // If dynamic LOS is false, this parameter, if true, computes LOS path loss; otherwise computes NLOS path loss -->
         bool fixed_los = default(false);
-        // Enable/disable fading -->
+        // Enable or disable fading -->
         bool fading = default(true);
         // Fading type (JAKES or RAYLEIGH) -->
-        string fading_type @enum(RAYLEIGH,JAKES) = default("JAKES");
-        // If jakes fading this parameter specify the number of path (tap channel) -->
+        string fading_type @enum(RAYLEIGH, JAKES) = default("JAKES");
+        // If Jakes fading is used, this parameter specifies the number of paths (tap channels) -->
         int fading_paths = default(6);
         double delay_rms @unit(s) = default(363ns);
 
-        // if true, enables the inter-cell interference computation for UL and DL connections from background cells -->
+        // If true, enables the computation of inter-cell interference for UL and DL connections from background cells -->
         bool bgCell_interference = default(true);
-        // if true, enables the inter-cell interference computation for DL connections -->
+        // If true, enables the computation of inter-cell interference for DL connections -->
         bool downlink_interference = default(true);
-        // if true, enables the interference computation for UL connections -->
+        // If true, enables the computation of interference for UL connections -->
         bool uplink_interference = default(true);
 }

@@ -24,7 +24,7 @@ module UeStatsCollector like StatsCollector
         string interfaceTableModule;
         bool movingAverage = default(true);
 
-        // time periods for measurements
+        // Time periods for measurements
         int dataVolumePeriods = default(15);
         int delayPacketPeriods = default(10);
         int discardRatePeriods = default(15);

@@ -41,7 +41,7 @@ module Car extends Ue
         //# Mobility
         mobility.typename = default("VeinsInetMobility");
 
-        //# Network Layer specs
+        //# Network Layer specifications
         *.routingTableModule = default(absPath(".ipv4.routingTable"));
         *.interfaceTableModule = default(absPath(".interfaceTable"));
 
