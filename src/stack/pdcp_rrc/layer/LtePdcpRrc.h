@@ -79,6 +79,8 @@ class LtePdcpRrcBase : public omnetpp::cSimpleModule
      */
     virtual void deleteEntities(MacNodeId nodeId) {}
 
+    enum RlcTypes { TM, UM, AM, UNKNOWN_RLC_TYPE };
+    
   protected:
 
     /**

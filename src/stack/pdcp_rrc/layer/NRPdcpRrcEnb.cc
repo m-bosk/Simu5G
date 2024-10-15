@@ -36,7 +36,7 @@ void NRPdcpRrcEnb::fromDataPort(cPacket *pktAux)
     emit(receivedPacketFromUpperLayer, pktAux);
 
     // Control Informations
-    auto pkt = check_and_cast<inet::Packet *> (pktAux);
+    auto pkt = check_and_cast<inet::Packet *> (pktAux); // @suppress("Function cannot be instantiated")
     auto lteInfo = pkt->getTagForUpdate<FlowControlInfo>();
     setTrafficInformation(pkt, lteInfo);
 
@@ -107,7 +107,7 @@ void NRPdcpRrcEnb::fromDataPort(cPacket *pktAux)
 
 void NRPdcpRrcEnb::fromLowerLayer(cPacket *pktAux)
 {
-    auto pkt = check_and_cast<Packet*>(pktAux);
+    auto pkt = check_and_cast<Packet*>(pktAux); // @suppress("Function cannot be instantiated")
     pkt->trim();
 
     // if dual connectivity is enabled and this is a secondary node,

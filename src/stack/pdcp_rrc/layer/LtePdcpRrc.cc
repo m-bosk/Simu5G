@@ -27,6 +27,12 @@ Define_Module(LtePdcpRrcEnb);
 using namespace omnetpp;
 using namespace inet;
 
+Register_Enum(LtePdcpRrcBase::RlcTypes,
+        (LtePdcpRrcBase::TM,
+         LtePdcpRrcBase::UM,
+         LtePdcpRrcBase::AM,
+         LtePdcpRrcBase::UNKNOWN_RLC_TYPE));
+
 // We require a minimum length of 1 Byte for each header even in compressed state
 // (transport, network and ROHC header, i.e. minimum is 3 Bytes)
 #define MIN_COMPRESSED_HEADER_SIZE B(3)
@@ -125,26 +131,26 @@ void LtePdcpRrcBase::setTrafficInformation(cPacket* pkt, inet::Ptr<FlowControlIn
     {
         lteInfo->setApplication(VOIP);
         lteInfo->setTraffic(CONVERSATIONAL);
-        lteInfo->setRlcType((int) par("conversationalRlc"));
+        lteInfo->setRlcType(cEnum::get("LtePdcpRrcBase::RlcTypes")->lookup(par("conversationalRlc")));
     }
     else if ((strcmp(pkt->getName(), "gaming")) == 0)
     {
         lteInfo->setApplication(GAMING);
         lteInfo->setTraffic(INTERACTIVE);
-        lteInfo->setRlcType((int) par("interactiveRlc"));
+        lteInfo->setRlcType(cEnum::get("LtePdcpRrcBase::RlcTypes")->lookup(par("interactiveRlc")));
     }
     else if ((strcmp(pkt->getName(), "VoDPacket") == 0)
         || (strcmp(pkt->getName(), "VoDFinishPacket") == 0))
     {
         lteInfo->setApplication(VOD);
         lteInfo->setTraffic(STREAMING);
-        lteInfo->setRlcType((int) par("streamingRlc"));
+        lteInfo->setRlcType(cEnum::get("LtePdcpRrcBase::RlcTypes")->lookup(par("streamingRlc")));
     }
     else
     {
         lteInfo->setApplication(CBR);
         lteInfo->setTraffic(BACKGROUND);
-        lteInfo->setRlcType((int) par("backgroundRlc"));
+        lteInfo->setRlcType(cEnum::get("LtePdcpRrcBase::RlcTypes")->lookup( par("backgroundRlc")));
     }
 
     lteInfo->setDirection(getDirection());
